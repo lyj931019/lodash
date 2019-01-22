@@ -308,4 +308,127 @@
         return false;
     }
     console.log( _.flatten([1, [2, [3, [4]], 5]]) ); // => [1, 2, [3, [4]], 5]
+})(false);
+
+
+/*
+* _.flattenDeep(array)
+* Recursively flattens array.
+* 递归展平数组(不论几级的数组都展平)
+*
+* 返回（Array）：展平后的新数组
+* */
+((isRun)=>{
+    if(!isRun){
+        return false;
+    }
+    console.log( _.flattenDeep([1, [2, [3, [4]], 5]]) ); // => [1, 2, 3, 4, 5]
+})(false);
+
+
+/*
+* _.flattenDepth(array, [depth=1])
+* Recursively flatten array up to depth times.
+* 递归展平数组,可控制递归深度
+*
+* [depth=1] （数字）：最大递归深度。
+*
+* 返回（Array）：展平后的新数组
+*
+* */
+((isRun)=>{
+    if(!isRun){
+        return false;
+    }
+    console.log( _.flattenDepth([1, [2, [3, [4]], 5]],1) ); // => [1, 2, [3, [4]], 5]
+    console.log( _.flattenDepth([1, [2, [3, [4]], 5]],2) ); // => [1, 2, 3, [4], 5]
+    console.log( _.flattenDepth([1, [2, [3, [4]], 5]],3) ); // => [1, 2, 3, 4, 5]
+})(false);
+
+
+/*
+* _.fromPairs(pairs)
+* The inverse of _.toPairs; this method returns an object composed from key-value pairs.
+* 返回由键值对组成的pairs对象
+*
+* pairs （数组）：键值对。
+* 返回：（Object）新对象。
+* */
+((isRun)=>{
+    if(!isRun){
+        return false;
+    }
+    console.log(_.fromPairs([['a', 1], ['b', 2]])); // => { 'a': 1, 'b': 2 }
+    console.log(_.fromPairs([[[1,2], 1], ['b', 2]])); // => { '1,2': 1, 'b': 2 }
+})(false);
+
+
+
+/*
+* _.head(array)
+* Gets the first element of array.
+* 获取数组的第一个元素。
+*
+* */
+((isRun)=>{
+    if(!isRun){
+        return false;
+    }
+    console.log(_.head([1, 2, 3])); // => 1
+    console.log(_.head([])); // => undefined
+})(false);
+
+
+/*
+* _.indexOf(array, value, [fromIndex=0])
+* Gets the index at which the first occurrence of value is found in array using SameValueZero for equality comparisons. If fromIndex is negative, it's used as the offset from the end of array.
+* 获取在array中第一次出现value的索引,使用SameValueZero的相等比较。如果fromIndex是负数，则将其用作距离array结尾的偏移量。
+*
+* array （数组）：要检查的数组。
+* value （*）：要搜索的值。
+* [fromIndex=0] （数字）：要搜索的索引。
+*
+* 返回（number）：返回匹配值的索引，否则-1。
+* */
+((isRun)=>{
+    if(!isRun){
+        return false;
+    }
+    console.log(_.indexOf([1, 2, 1, 2], 2)); // => 1
+    console.log(_.indexOf([1, 2, 1, 2], 2, 2)); // => 3
+})(false);
+
+
+/*
+* _.initial(array)
+* Gets all but the last element of array.
+* 获取除了最后一个元素的所有元素的数组。
+*
+* 返回（array）：返回（新的）切片的数组。
+* */
+((isRun)=>{
+    if(!isRun){
+        return false;
+    }
+    var arr = [1,2,3];
+    console.log(_.initial(arr)); // => [1,2]
+    console.log(arr); // => [1,2,3]
+})(false);
+
+
+/*
+* _.intersection([arrays])
+* Creates an array of unique values that are included in all given arrays using SameValueZero for equality comparisons. The order and references of result values are determined by the first array.
+* 使用SameValueZero相等比较创建包含在所有给定数组中的唯一值数组。结果值的顺序和引用由第一个数组确定。(多个数组取交集)
+*
+* [arrays] （...数组）：要检查的数组。
+*
+* 返回（array）：返回相交值的新数组。
+* */
+((isRun)=>{
+    if(!isRun){
+        return false;
+    }
+    console.log(_.intersection([2, 1], [2, 3])); // => [2]
+    console.log(_.intersection([2, 1], [1, 2, 3],[1,2,5])); // => [2,1]
 })(true);
